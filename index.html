@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 300px;
+    }
+
+    h1 {
+      color: #e63946;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    #noBtn {
+      background-color: #adb5bd;
+      color: black;
+    }
+
+    img {
+      width: 150px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <h1 id="question">Will you be my Valentine? 💘</h1>
+
+  <button id="yesBtn" onclick="sayYes()">Yes ❤️</button>
+  <button id="noBtn" onclick="sayNo()">No 💔</button>
+</div>
+
+<script>
+  let noCount = 0;
+  const messages = [
+    "Are you sure? 🥺",
+    "Please say yes 💖",
+    "Don’t break my heart 😭",
+    "I’ll buy you snacks 🍫",
+    "Okay last chance 😢💘"
+  ];
+
+  function sayNo() {
+    noCount++;
+    document.getElementById("question").innerText =
+      messages[Math.min(noCount, messages.length - 1)];
+
+    let yesBtn = document.getElementById("yesBtn");
+    yesBtn.style.transform = `scale(${1 + noCount * 0.3})`;
+  }
+
+  function sayYes() {
+    document.getElementById("card").innerHTML = `
+      <h1>Thanks my love 💐💖</h1>
+      <p>You just made my day 😍</p>
+      <img src="https://i.imgur.com/6Z8YQwM.png">
+    `;
+  }
+</script>
+
+</body>
+</html>
